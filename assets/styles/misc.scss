@@ -1,0 +1,171 @@
+@import './variables.scss';
+.markdown {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 1em 0;
+    }
+    p {
+        margin: 1em 0;
+        text-align: justify;
+        code {
+            background-color: $code-background-color;
+            color: $code-foreground-color;
+            padding: 2px 4px;
+        }
+    }
+    blockquote {
+        margin: 1em 0;
+        padding-left: 20px;
+        border-left: 5px solid $grey;
+    }
+    ul {
+        margin: 1em 0;
+        padding-left: 40px;
+        ul,
+        ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+    }
+    ol {
+        margin: 1em 0;
+        padding-left: 40px;
+        ul,
+        ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+    }
+    pre {
+        margin: 1em 0;
+        background-color: $code-background-color;
+        color: $code-foreground-color;
+        font-family: Consolas, monospace;
+        padding: 8px 16px;
+        overflow-x: auto;
+    }
+    table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        background-color: transparent;
+        border-spacing: 0;
+        border-collapse: collapse;
+        thead {
+            tr {
+                th {
+                    text-align: left;
+                    vertical-align: bottom;
+                    border-bottom: 2px solid #ddd;
+                    padding: 8px;
+                    line-height: 1.5;
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    padding: 8px;
+                    line-height: 1.42857143;
+                    vertical-align: top;
+                    border-top: 1px solid #ddd;
+                }
+                &:nth-child(odd) {
+                    td {
+                        background-color: #f9f9f9;
+                    }
+                }
+            }
+        }
+    }
+    img {
+        max-width: 100%;
+    }
+}
+
+hr {
+    margin: 0.5em 0;
+    border: 0;
+    border-top: 1px solid $grey;
+}
+
+button {
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 6px 12px;
+    line-height: 1.5;
+    font-size: 16px;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+        background-color: $button-background-color;
+    }
+    &:active {
+        background-color: $button-active-background-color;
+    }
+    &.btn-primary {
+        background-color: $button-primary-background-color;
+        color: white;
+        &:active {
+            background-color: $button-primary-active-background-color;
+        }
+    }
+    &.btn-header {
+        color: white;
+        &:hover,
+        &:focus {
+            background-color: transparent;
+        }
+        background-color: transparent;
+    }
+}
+
+.badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    height: 16px;
+    width: 16px;
+    line-height: 16px;
+    border-radius: 50%;
+    background-color: $primary-blue;
+    font-size: 9px;
+    color: white;
+}
+
+input[type=search],
+input[type=text],
+select {
+    border: none;
+    border-bottom: 1px solid $input-border-color;
+    padding: 6px;
+    line-height: 1.5;
+    font-size: 16px;
+    min-height: 37px;
+    &:focus {
+        border-color: $input-focused-border-color;
+    }
+}
+
+a.social-link {
+    color: $font-color-grey;
+    text-decoration: unset;
+    transition-property: color;
+    transition-duration: 200ms;
+    &:hover {
+        &.github {
+            color: #24292e;
+        }
+        &.twitter {
+            color: #1da1f2;
+        }
+        &.linkedin {
+            color: #0077B5;
+        }
+    }
+}
