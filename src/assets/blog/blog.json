@@ -1,0 +1,23 @@
+{
+    "posts": [
+        {
+            "id": "graphql-exposez-vos-donnees-dynamiquement-dans-une-api-rest",
+            "title": "GraphQL : Exposez vos données dynamiquement dans une API REST",
+            "date": "2018-04-03",
+            "category": "Web",
+            "tags": [
+                "GraphQL"
+            ]
+        },
+        {
+            "id": "graphql-aspnet-core",
+            "title": "GraphQL + ASP.NET Core = ❤",
+            "date": "2018-04-10",
+            "category": "Web",
+            "tags": [
+                "GraphQL",
+                "ASP.NET Core"
+            ]
+        }
+    ]
+}

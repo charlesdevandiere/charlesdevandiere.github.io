@@ -1,0 +1,25 @@
+// base colors
+$primary-blue: #007BFF;
+$grey: #CED4DA;
+$light-grey: #E0E0E0;
+$dark-grey: #202020;
+// colors
+$font-color: #101010;
+$font-color-grey: #606060;
+$button-background-color: rgba(0, 0, 0, 0.1);
+$button-active-background-color: rgba(0, 0, 0, 0.2);
+$button-primary-background-color: $primary-blue;
+$button-primary-active-background-color: rgb(0, 115, 238);
+$code-background-color: $dark-grey;
+$code-foreground-color: $light-grey;
+$input-border-color: $grey;
+$input-focused-border-color: $primary-blue;
+// screen
+$tablet-size: 992px;
+$portrait-tablet-size: 768px;
+$phone-size: 480px;
+//size
+$blog-header-height: 512px;
+$blog-header-name-height: 96px;
+$list-item-height: 96px;
+$blog-post-header-height: 64px;

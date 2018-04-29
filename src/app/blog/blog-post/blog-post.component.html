@@ -1,0 +1,33 @@
+<header>
+    <div class="over-background">
+        <div class="content-wrapper">
+            <button class="btn-header" aria-label="Retour" appNavigate route="/blog">
+                <i class="fas fa-arrow-left fa-lg"></i>
+            </button>
+            <div class="header-title">
+                Blog {{name}}
+            </div>
+        </div>
+    </div>
+</header>
+<div class="content-wrapper">
+    <div class="post-title">
+        <div class="post-sub-title">{{post?.date|date:'longDate':'':'fr-FR'}}</div>
+        <h1>{{post?.title}}</h1>
+        <div class="post-sub-title">
+            <a [href]="githubUrl" aria-label="Github" target="_blank" rel="noopener" class="social-link github">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a [href]="twitterUrl" aria-label="Twitter" target="_blank" rel="noopener" class="social-link twitter">
+                <i class="fab fa-twitter fa-lg"></i>
+            </a>
+            <a [href]="linkedInUrl" aria-label="LinkedIn" target="_blank" rel="noopener" class="social-link linkedin">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+            {{name}}
+        </div>
+    </div>
+    <div class="post-text">
+        <app-markdown-viewer [markdown]="markdown"></app-markdown-viewer>
+    </div>
+</div>

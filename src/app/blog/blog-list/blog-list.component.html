@@ -1,0 +1,49 @@
+<header>
+    <div class="photo">
+        <div class="img-wrapper">
+            <img src="assets/images/profil.jpg" alt="profil picture" />
+        </div>
+    </div>
+    <div class="name">{{name}}</div>
+</header>
+<div class="content-wrapper">
+    <div id="filter-wrapper">
+        <form [formGroup]="filterForm" autocomplete="off">
+            <div id="filter-head">
+                <h2 [class.should-hide]="isSearchExpanded">Liste des articles</h2>
+                <input id="search-input" type="search" placeholder="Rechercher" autocomplete="off" formControlName="search" [hidden]="!isSearchExpanded">
+                <button id="search-button" aria-label="Rechercher" (click)="toggleExpandSearch()" [class.btn-primary]="isSearchExpanded">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="filter-button" aria-label="Filtrer" (click)="toggleExpandFilters()" [class.btn-primary]="isFiltersExpanded">
+                    <i class="fas fa-filter"></i>
+                    <div class="badge" [hidden]="isFiltersExpanded || !filterCount">{{filterCount}}</div>
+                </button>
+            </div>
+            <div id="filter-body" [class.expanded]="isFiltersExpanded">
+                <select formControlName="category" aria-label="Sélectionnez une catégorie">
+                    <option value="">Toutes les catégories</option>
+                    <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+                </select>
+                <select formControlName="tag" aria-label="Sélectionnez un tag">
+                    <option value="">Tout les tags</option>
+                    <option *ngFor="let tag of tags" [value]="tag">{{tag}}</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <ul>
+        <li *ngFor="let post of posts">
+            <a [routerLink]="['/blog', post.id]">
+                <h3>{{post.title}}</h3>
+                <h4>{{post.category}}</h4>
+                <div class="post-category">
+                    <label>{{post.date|date:'longDate':'':'fr-FR'}}</label>
+                </div>
+                <div class="post-tags">
+                    <label *ngFor="let tag of post.tags">#{{tag}} </label> 
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

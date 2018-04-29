@@ -1,0 +1,40 @@
+@import '../../../assets/styles/variables.scss';
+header {
+    background: url('../../../assets/images/background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center center;
+    .over-background {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .content-wrapper {
+        height: $blog-post-header-height;
+        display: flex;
+        align-items: center;
+        .header-title {
+            margin-left: 16px;
+            color: white;
+            font-size: 24px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}
+
+.content-wrapper {
+    .post-title {
+        margin: 48px 0 32px 0;
+        h1 {
+            font-size: 48px;
+            font-weight: lighter;
+            word-wrap: break-word;
+            margin: 8px 0;
+        }
+        .post-sub-title {
+            color: $font-color-grey;
+        }
+    }
+    .post-text {
+        margin-bottom: 64px;
+    }
+}
