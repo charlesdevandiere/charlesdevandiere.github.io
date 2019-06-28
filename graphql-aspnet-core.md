@@ -1,4 +1,4 @@
-# GraphQL + ASP.NET Core = :heart:
+# GraphQL + ASP.NET Core = ❤
 
 10/04/2018 `GraphQL` `ASP.NET Core`
 

@@ -205,11 +205,11 @@ Il est très simple à installer donc ne vous en privez pas !
 
 graphiql.png
 
-## Liens utiles :
+## Liens utiles
 
-* Documentation de GraphQL : https://graphql.org/
-* GraphiQL : https://github.com/graphql/graphiql
-* Liste des serveurs/clients GraphQL : https://graphql.org/code/
+* Documentation de GraphQL : [https://graphql.org](https://graphql.org)
+* GraphiQL : [https://github.com/graphql/graphiql](https://github.com/graphql/graphiql)
+* Liste des serveurs/clients GraphQL : [https://graphql.org/code](https://graphql.org/code)
 
 ## Pour la suite
 
