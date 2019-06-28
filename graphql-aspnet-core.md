@@ -1,4 +1,8 @@
-## Introduction
+# GraphQL + ASP.NET Core = :heart:
+
+10/04/2018 `GraphQL` `ASP.NET Core`
+
+---
 
 Dans mon [article précédent](./blog/graphql-exposez-vos-donnees-dynamiquement-dans-une-api-rest), je vous ai présenté GraphQL, le langage de requêtage de Facebook permettant de faire des requêtes sur mesure.
 
@@ -14,7 +18,7 @@ Dans un premier temps, il nous faut décrire les types qu’expose notre API. Po
 
 Si nous avons le POCO suivant :
 
-``` csharp
+```csharp
 public class Droid
 {
     public string Id { get; set; }
@@ -24,7 +28,7 @@ public class Droid
 
 Il nous faut créer l’ObjectGraphType correspondant :
 
-``` csharp
+```csharp
 public class DroidType : ObjectGraphType<Droid>
 {
     public DroidType()
@@ -45,14 +49,14 @@ La propriété Description permet de donner une description au type ou au champ 
 
 Ajoutons une nouvelle propriété a notre POCO :
 
-``` csharp
+```csharp
 public class Droid
 {
     public string Id { get; set; }
     public string Name { get; set; }
     public List<Episode> AppearsIn { get; set; }
 }
- 
+
 public class Episode
 {
     public string Name { get; set; }
@@ -63,7 +67,7 @@ public class Episode
 
 La propriété AppearsIn étant complexe, nous ne pouvons pas l’ajouter aussi simplement que précédemment en tant que field dans l’ObjectGraphType. Nous allons utiliser la surcharge prévue pour les types complexes :
 
-``` csharp
+```csharp
 public class DroidType : ObjectGraphType<Droid>
 {
     public DroidType()
@@ -87,7 +91,7 @@ Il existe également FieldAsync qui permet de faire des traitements asynchrones 
 
 Maintenant que nous avons défini les types pour GraphQL, nous allons écrire les queries.
 
-``` csharp
+```csharp
 public class StarWarsQuery : ObjectGraphType<object>
 {
     public StarWarsQuery(StarWarsData data)
@@ -112,7 +116,7 @@ public class StarWarsQuery : ObjectGraphType<object>
 
 Maintenant que les types et les queries sont prêts, nous allons définir le schéma GraphQL :
 
-``` csharp
+```csharp
 public class StarWarsSchema : Schema
 {
     public StarWarsSchema(IDependencyResolver resolver)
@@ -132,7 +136,7 @@ Le schéma GraphQL contient deux propriétés :
 
 Maintenant que nous avons développé toutes les classes nécessaires à GraphQL il ne faut pas oublier de les ajouter à l’injecteur de dépendances, sinon GraphQL ne pourra pas fonctionner.
 
-``` csharp
+```csharp
 service.AddTransiant<StarWarsData>();
 service.AddTransiant<DroidType>();
 service.AddTransiant<EpisodeType>();
@@ -144,7 +148,7 @@ service.AddSingleton(new StarWarsSchema(new FuncDependencyResolver(type => servi
 
 Maintenant que tout est prêt, il ne nous reste plus qu’à appeler la query :
 
-``` csharp
+```csharp
 public class GraphQLService : IGraphQLService
 {
     private readonly ISchema _query;
@@ -164,7 +168,7 @@ public class GraphQLService : IGraphQLService
 
 Il ne reste plus qu’à tester :
 
-```
+```gql
 {
     droid(id: "AF669ABD-AAEB-4C7B-870D-0360FDFA02D5") {
         id
@@ -180,7 +184,7 @@ Il ne reste plus qu’à tester :
 
 Le résultat :
 
-``` json
+```json
 {
     "data": {
         "droid": {
@@ -216,7 +220,7 @@ Pour rappel, la mutation est une action graphQL permettant de créer, modifier o
 
 En première partie de l’article, nous avons créé des ObjectGraphType qui nous permettaient de décrire les objets retournés par GraphQL. Ici nous allons créer des InputObjectGraphType. Comme leur nom permet de le deviner, ces types permettent de décrire les objets d’entrée de nos mutations. Voici un exemple avec le droïd :
 
-``` csharp
+```csharp
 public class DroidInputType : InputObjectGraphType
 {
     public DroidInputType()
@@ -231,7 +235,7 @@ On ne déclare que la propriété « Name » en non nul car l’identifiant sera
 
 ### La mutation
 
-``` csharp
+```csharp
 public class StarWarsMutation : ObjectGraphType<object>
 {
     public StarWarsMutation(StarWarsData data)
@@ -263,7 +267,7 @@ La méthode GetArgument permet de récupérer notre input converti en POCO.
 
 Maintenant que la mutation est prête il faut l’ajouter au schéma GraphQL
 
-``` csharp
+```csharp
 public class StarWarsSchema : Schema
 {
     public StarWarsSchema(IDependencyResolver resolver)
@@ -307,7 +311,7 @@ public class GraphQLService : IGraphQLService
 
 Il ne reste plus qu’à tester :
 
-```
+```gql
 {
     "query": "mutation ($droid: DroidInput!){ createDroid(droid: $droid) { id name } }",
     "variables": {
@@ -320,7 +324,7 @@ Il ne reste plus qu’à tester :
 
 Le résultat :
 
-``` json
+```json
 {
     "data": {
         "droid": {

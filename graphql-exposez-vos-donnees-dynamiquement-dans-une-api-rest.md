@@ -1,8 +1,14 @@
+# GraphQL : Exposez vos données dynamiquement dans une API REST
+
+03/04/2018 `GraphQL`
+
+---
+
 Lors d’une mission, j’ai eu à développer une API permettant de retourner uniquement les champs demandés de façon dynamique.
 
 Par exemple, si j’ai l’entité suivante :
 
-```
+```gql
 {
   id
   firstName
@@ -36,7 +42,7 @@ Les queries sont exprimées dans un pseudo langage où les champs demandés sont
 
 Voici un exemple d’une query :
 
-```
+```gql
 {
   humans {
     id
@@ -50,7 +56,7 @@ Ici, on demande la liste des humains et on souhaite récupérer son identifiant,
 
 La réponse de GraphQL est la suivante :
 
-``` json
+```json
 {
   "data": {
     "humans": [
@@ -81,7 +87,7 @@ Maintenant, si nous souhaitons obtenir plus d’information sur Luke Skywalker, 
 
 Les arguments se placent dans les parenthèses et peuvent être de tout type. Ici « id » est de type Int.
 
-```
+```gql
 {
   human(id: 1) {
     name
@@ -96,7 +102,7 @@ Les arguments se placent dans les parenthèses et peuvent être de tout type. Ic
 
 Voici le résultat :
 
-``` json
+```json
 {
   "data": {
     "human": [
@@ -124,7 +130,7 @@ La mutation est l’opération GraphQL permettant de modifier une entité (rien 
 
 Une mutation s’écrit de la manière suivante :
 
-```
+```gql
 mutation ($human: HumanInput!) {
   createHuman(human: $human) {
     id
@@ -135,7 +141,7 @@ mutation ($human: HumanInput!) {
 
 Variables :
 
-``` json
+```json
 {
   "human": {
     "name": "Boba Fett"
@@ -150,7 +156,7 @@ Variables :
 
 Voici le résultat :
 
-``` json
+```json
 {
   "data": {
     "createHuman": {
@@ -167,7 +173,7 @@ L’une des grandes forces de GraphQL est sa gestion des erreurs. Si vous faites
 
 Voici un exemple :
 
-```
+```gql
 {
   hero
 }
@@ -175,7 +181,7 @@ Voici un exemple :
 
 Résultat :
 
-``` json
+```json
 {
   "errors": [
     {
@@ -207,6 +213,6 @@ graphiql.png
 
 ## Pour la suite
 
-Comme je l’ai dit plus haut, mon prochain article détaillera l’implémentation d’une API GraphQL en .NET : [GraphQL + ASP.NET Core = ❤](./blog/graphql-aspnet-core)
+Comme je l’ai dit plus haut, mon prochain article détaillera l’implémentation d’une API GraphQL en .NET : [GraphQL + ASP.NET Core = ❤](graphql-aspnet-core)
 
 A très bientôt !
