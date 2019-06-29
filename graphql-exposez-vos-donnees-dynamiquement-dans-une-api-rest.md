@@ -213,6 +213,6 @@ graphiql.png
 
 ## Pour la suite
 
-Comme je l’ai dit plus haut, mon prochain article détaillera l’implémentation d’une API GraphQL en .NET : [GraphQL + ASP.NET Core = ❤](graphql-aspnet-core)
+Comme je l’ai dit plus haut, mon prochain article détaillera l’implémentation d’une API GraphQL en .NET : [GraphQL + ASP.NET Core = ❤](./graphql-aspnet-core)
 
 A très bientôt !

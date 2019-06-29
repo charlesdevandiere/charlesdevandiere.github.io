@@ -4,7 +4,7 @@
 
 ---
 
-Dans mon [article précédent](./blog/graphql-exposez-vos-donnees-dynamiquement-dans-une-api-rest), je vous ai présenté GraphQL, le langage de requêtage de Facebook permettant de faire des requêtes sur mesure.
+Dans mon [article précédent](./graphql-exposez-vos-donnees-dynamiquement-dans-une-api-rest), je vous ai présenté GraphQL, le langage de requêtage de Facebook permettant de faire des requêtes sur mesure.
 
 Maintenant, je vais vous montrer comment implémenter GraphQL sur une API ASP.NET Core avec [GraphQL for .NET](https://github.com/graphql-dotnet/graphql-dotnet).
 
