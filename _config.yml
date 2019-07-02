@@ -2,3 +2,6 @@ theme: jekyll-theme-cayman
 title: Charles de Vandière
 description: Développeur full stack
 google_analytics: UA-44836963-2
+plugins:
+  - jekyll-sitemap
+  
