@@ -2,6 +2,8 @@
 
 10/04/2018 `GraphQL` `ASP.NET Core`
 
+[Retour](./)
+
 ---
 
 Dans mon [article précédent](./graphql-exposez-vos-donnees-dynamiquement-dans-une-api-rest), je vous ai présenté GraphQL, le langage de requêtage de Facebook permettant de faire des requêtes sur mesure.
