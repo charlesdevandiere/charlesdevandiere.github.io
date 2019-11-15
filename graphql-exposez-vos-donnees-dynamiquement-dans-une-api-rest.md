@@ -2,6 +2,8 @@
 
 03/04/2018 `GraphQL`
 
+[Retour](./)
+
 ---
 
 Lors d’une mission, j’ai eu à développer une API permettant de retourner uniquement les champs demandés de façon dynamique.
